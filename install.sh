@@ -10,7 +10,7 @@ dialog --title "Script installazione Gpio Breakout" --msgbox "Attenzione verrann
 
 cd ~
 sudo apt-get update
-sudo apt-get install -y git libjpeg-dev dialog
+sudo apt-get install -y git libjpeg-dev dialog dkms cpp-4.7 gcc-4.7 git joystick raspberrypi-kernel-headers
 
 	printf "\033[1;31m download GPIO Driver \033[0m\n"
 	git clone https://github.com/vince87/Gpio-Breakout.git
