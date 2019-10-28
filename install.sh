@@ -6,7 +6,7 @@
 #########################################################
 
 dialog --title "Script installazione Gpio Breakout" --msgbox "Attenzione verranno ora installati i driver per il corretto funzionamento della Gpio Breakout.
-\n \nSe stai usando un immagine custom, non scaricata da retropie.org.uk, accertati di aver disattivato tutti gli script che usano i GPIO." 14 60
+\n \nSe stai usando un immagine custom, non scaricata da retropie.org.uk, accertati di aver disattivato tutti gli script che usano i GPIO." 12 60
 
 cd ~
 sudo apt-get update
