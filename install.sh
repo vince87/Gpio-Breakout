@@ -17,19 +17,22 @@ sudo apt-get install -y git libjpeg-dev dialog
 	
 ##install jammapi joystick driver
 	printf "\033[1;31m Install GPIO Joystick driver \033[0m\n"
-	cd mk_arcade_joystick/
+	cd Gpio-Breakout/mk_arcade_joystick/
 	mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	cd ~
-	rm -R mk_arcade_joystick/
 	dkms build -m mk_arcade_joystick_rpi -v 0.1.5
 	dkms install -m mk_arcade_joystick_rpi -v 0.1.5
 	modprobe mk_arcade_joystick_rpi map=1,2
-	mv /etc/modules /etc/modules.bak
-	mv modules /etc/
+	
+	sudo grep 'i2c-dev' /etc/modules > /dev/null 2>&1
+	if [ $? -eq 0 ] ; then
+	echo "modulo già impostato!"
+	else
+	sudo sh -c "echo 'i2c-dev' >> /etc/modules"
+	sudo sh -c "echo 'mk_arcade_joystick_rpi' >> /etc/modules"
+	echo "Modulo impostato!"
 	rm /etc/modprobe.d/mk_arcade_joystick.conf
 	echo "options mk_arcade_joystick_rpi map=1,2" >> mk_arcade_joystick.conf
-	mv mk_arcade_joystick.conf /etc/modprobe.d/
-
+	sudo mv mk_arcade_joystick.conf /etc/modprobe.d/
 #reboot
-fi	
