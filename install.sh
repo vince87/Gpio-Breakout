@@ -30,9 +30,9 @@ sudo apt-get install -y git libjpeg-dev dialog dkms cpp-4.7 gcc-4.7 git joystick
 	else
 	sudo sh -c "echo 'i2c-dev' >> /etc/modules"
 	sudo sh -c "echo 'mk_arcade_joystick_rpi' >> /etc/modules"
-	sudo rm /etc/modprobe.d/mk_arcade_joystick.conf
-	echo "options mk_arcade_joystick_rpi map=1,2" >> mk_arcade_joystick.conf
-	sudo mv mk_arcade_joystick.conf /etc/modprobe.d/
+	sudo rm /etc/modprobe.d/mk_arcade_joystick_rpi.conf
+	echo "options mk_arcade_joystick_rpi map=1,2" >> mk_arcade_joystick_rpi.conf
+	sudo mv mk_arcade_joystick_rpi.conf /etc/modprobe.d/
 	echo "Modulo impostato!"
 	fi
 #reboot
