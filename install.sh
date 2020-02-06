@@ -38,6 +38,4 @@ sudo apt-get install -y git libjpeg-dev dialog dkms cpp-4.7 gcc-4.7 git joystick
 #reboot
 	sudo ./RetroPie-Setup/retropie_packages.sh mkarcadejoystick
 	sudo rm /etc/modprobe.d/mk_arcade_joystick_rpi.conf
-	#echo "options mk_arcade_joystick_rpi map=1,2" >> mk_arcade_joystick_rpi.conf
-	#sudo mv mk_arcade_joystick_rpi.conf /etc/modprobe.d/
-	
+	sudo sh -c "echo 'options mk_arcade_joystick_rpi map=1,2' >> /etc/modprobe.d/mk_arcade_joystick_rpi.conf"
